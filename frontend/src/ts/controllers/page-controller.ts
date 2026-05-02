@@ -30,6 +30,7 @@ import {
   readGetParameters,
 } from "../states/leaderboard-selection";
 import { configurationPromise as serverConfigurationPromise } from "../ape/server-configuration";
+import * as Funbox from "../test/funbox/funbox";
 
 type ChangeOptions = {
   force?: boolean;
@@ -65,6 +66,9 @@ const pages = {
     },
     beforeShow: async (options) => {
       readGetParameters(options.urlParams);
+    },
+    afterHide: async () => {
+      void Funbox.clear();
     },
   }),
 };

@@ -423,7 +423,7 @@ async function init(): Promise<boolean> {
     return await init();
   }
 
-  if (getActivePage() === "test") {
+  if (getActivePage() === "test" && !PageTransition.get()) {
     await Funbox.activate();
   }
 
