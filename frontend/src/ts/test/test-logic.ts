@@ -175,6 +175,7 @@ type RestartOptions = {
   practiseMissed?: boolean;
   noAnim?: boolean;
   isQuickRestart?: boolean;
+  skipFunboxActivate?: boolean;
 };
 
 export function restart(options = {} as RestartOptions): void {
@@ -184,6 +185,7 @@ export function restart(options = {} as RestartOptions): void {
     noAnim: false,
     nosave: false,
     isQuickRestart: false,
+    skipFunboxActivate: false,
   };
 
   options = { ...defaultOptions, ...options };
@@ -353,7 +355,7 @@ export function restart(options = {} as RestartOptions): void {
       TestState.setPaceRepeat(repeatWithPace);
       TestInitFailed.hide();
       TestState.setTestInitSuccess(true);
-      const initResult = await init();
+      const initResult = await init(options.skipFunboxActivate);
 
       if (!initResult) {
         TestState.setTestRestarting(false);
@@ -387,7 +389,7 @@ let lastInitError: Error | null = null;
 let showedLazyModeNotification: boolean = false;
 let testReinitCount = 0;
 
-async function init(): Promise<boolean> {
+async function init(skipFunboxActivate = false): Promise<boolean> {
   console.debug("Initializing test");
   testReinitCount++;
   if (testReinitCount > 3) {
@@ -420,10 +422,10 @@ async function init(): Promise<boolean> {
   }
 
   if (!language || language.name !== Config.language) {
-    return await init();
+    return await init(skipFunboxActivate);
   }
 
-  if (getActivePage() === "test" && !PageTransition.get()) {
+  if (getActivePage() === "test" && !skipFunboxActivate) {
     await Funbox.activate();
   }
 
@@ -544,7 +546,7 @@ async function init(): Promise<boolean> {
       });
     }
 
-    return await init();
+    return await init(skipFunboxActivate);
   }
 
   let hasNumbers = false;
