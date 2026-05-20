@@ -1,3 +1,5 @@
+# test
+
 [![](https://github.com/monkeytypegame/monkeytype/blob/master/frontend/static/images/githubbanner2.png?raw=true)](https://monkeytype.com/)
 <br />
 
@@ -41,7 +43,7 @@ Monkeytype is a minimalistic and customizable [typing test](https://www.monkeyty
 
 # Discord bot
 
-On the [Monkeytype Discord server](https://www.discord.gg/monkeytype), we added a Discord bot to auto-assign optional roles based on typing performance and challenge completion. You can find its code over at https://github.com/monkeytypegame/monkeytype-bot.
+On the [Monkeytype Discord server](https://www.discord.gg/monkeytype), we added a Discord bot to auto-assign optional roles based on typing performance and challenge completion. You can find its code over at <https://github.com/monkeytypegame/monkeytype-bot>.
 
 # Bug report or Feature request
 
