@@ -1,3 +1,4 @@
+// test
 {
   "extends": "@monkeytype/typescript-config/base.json",
   "compilerOptions": {
