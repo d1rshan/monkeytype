@@ -13,3 +13,5 @@ export function getAllFunboxes(): FunboxMetadata[] {
 export function getFunboxObject(): Record<FunboxName, FunboxMetadata> {
   return getObject();
 }
+
+// test
