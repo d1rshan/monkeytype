@@ -17,13 +17,12 @@ frontend:
 packages:
   - any: ["packages/**/*"]
 
-local dev:
+documentation:
   - any:
       [
         "**/turbo.json",
         "**/tsconfig.json",
         "**/knip.json",
-        "**/.prettierrc",
-        "**/.oxlintrc.json",
-        "**/.eslintrc.cjs",
+        "**/.prettierrc.json",
+        "**/.oxlintrc.json"
       ]
